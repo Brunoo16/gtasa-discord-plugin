@@ -287,7 +287,7 @@ namespace Game
 
 						details = "Money: $" + std::to_string(*(int*)0xB7CE50);
 						state = "Weapon: " + GetWeaponName(*(int*)(CPed + 0x740));
-						large_img = "Game time: " + std::to_string(*(unsigned char*)0xB70153) + ':' + std::to_string(*(unsigned char*)0xB70152);
+						large_img = std::to_string(*(int*)0xB79038) + " day(s) passed.";
 
 						drp.smallImageText = small_img.c_str();
 						drp.details = details.c_str();
