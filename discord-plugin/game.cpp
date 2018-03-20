@@ -253,49 +253,44 @@ namespace Game
 
 			start_timestamp = time(0);
 
-			time_t timestamp = NULL;
-
 			while (1)
 			{
-				if (time(0) > timestamp)
+				int CPed = *(int*)0xB6F5F0; // Player pointer.
+
+				if (CPed)
 				{
-					timestamp = time(0) + 15;
+					std::string details, state, small_img, large_img;
 
-					int CPed = *(int*)0xB6F5F0; // Player pointer.
+					DiscordRichPresence drp;
 
-					if (CPed)
+					memset(&drp, 0, sizeof(drp));
+
+					drp.largeImageKey = "game_icon";
+					drp.startTimestamp = start_timestamp;
+
+					if (*(unsigned char*)(CPed + 0x46C) == 1) // Player is on vehicle, let's consider other states as "on-foot".
 					{
-						std::string details, state, small_img, large_img;
-
-						DiscordRichPresence drp;
-
-						memset(&drp, 0, sizeof(drp));
-
-						drp.largeImageKey = "game_icon";
-						drp.startTimestamp = start_timestamp;
-
-						if (*(unsigned char*)(CPed + 0x46C) == 1) // Player is on vehicle, let's consider other states as "on-foot".
-						{
-							drp.smallImageKey = "player_on_vehicle";
-							small_img = "On vehicle - Wanted level: " + std::to_string(*(int*)0xBAA420);
-						}
-						else
-						{
-							small_img = "On foot - Wanted level: " + std::to_string(*(int*)0xBAA420);
-							drp.smallImageKey = "player_on_foot";
-						}
-
-						details = "Money: $" + std::to_string(*(int*)0xB7CE50);
-						state = "Weapon: " + GetWeaponName(*(int*)(CPed + 0x740));
-						large_img = std::to_string(*(int*)0xB79038) + " day(s) passed.";
-
-						drp.smallImageText = small_img.c_str();
-						drp.details = details.c_str();
-						drp.state = state.c_str();
-						drp.largeImageText = large_img.c_str();
-
-						Discord_UpdatePresence(&drp);
+						drp.smallImageKey = "player_on_vehicle";
+						small_img = "On vehicle - Wanted level: " + std::to_string(*(int*)0xBAA420);
 					}
+					else
+					{
+						small_img = "On foot - Wanted level: " + std::to_string(*(int*)0xBAA420);
+						drp.smallImageKey = "player_on_foot";
+					}
+
+					details = "Money: $" + std::to_string(*(int*)0xB7CE50);
+					state = "Weapon: " + GetWeaponName(*(int*)(CPed + 0x740));
+					large_img = std::to_string(*(int*)0xB79038) + " day(s) passed.";
+
+					drp.smallImageText = small_img.c_str();
+					drp.details = details.c_str();
+					drp.state = state.c_str();
+					drp.largeImageText = large_img.c_str();
+
+					Discord_UpdatePresence(&drp);
+
+					Sleep(15000);
 				}
 			}
 		}
