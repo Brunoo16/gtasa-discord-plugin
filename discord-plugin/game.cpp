@@ -3,7 +3,6 @@
 namespace Game
 {
 	HMODULE handler = NULL;
-	time_t start_timestamp = NULL;
 
 	namespace Functions
 	{
@@ -251,7 +250,7 @@ namespace Game
 		{
 			Discord_Initialize("424599965164371968", 0, 1, 0);
 
-			start_timestamp = time(0);
+			time_t start_timestamp = time(0);
 
 			while (1)
 			{

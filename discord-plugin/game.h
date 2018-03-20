@@ -6,7 +6,6 @@
 namespace Game
 {
 	extern HMODULE handler;
-	extern time_t start_timestamp;
 
 	namespace Functions
 	{
