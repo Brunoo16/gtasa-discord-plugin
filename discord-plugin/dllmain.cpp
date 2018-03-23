@@ -5,14 +5,11 @@ BOOL APIENTRY DllMain(HMODULE module, DWORD reason, LPVOID lpReserved)
 	if (reason == DLL_PROCESS_ATTACH)
 	{
 		DisableThreadLibraryCalls(module);
-		Game::Functions::Initialize(module);
+		Game::Functions::Initialize();
 	}
 	else if (reason == DLL_PROCESS_DETACH)
 	{
-		if (Game::handler == module)
-		{
-			Game::Functions::Shutdown();
-		}
+		Game::Functions::Shutdown();
 	}
 	return TRUE;
 }

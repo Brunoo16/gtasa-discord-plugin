@@ -2,14 +2,11 @@
 
 namespace Game
 {
-	HMODULE handler = NULL;
-
 	namespace Functions
 	{
-		void Initialize(HMODULE handle)
+		void Initialize()
 		{
-			handler = handle;
-			CreateThread(0, 0, (LPTHREAD_START_ROUTINE)Game::Functions::PluginThread, 0, 0, 0); // Thread because we don't want to end up in a deadlock when initializing on dllmain.
+			CreateThread(0, 0, (LPTHREAD_START_ROUTINE)Functions::PluginThread, 0, 0, 0); // Thread because we don't want to end up in a deadlock when initializing on dllmain.
 		}
 
 		void Shutdown()
@@ -250,24 +247,22 @@ namespace Game
 		{
 			Discord_Initialize("424599965164371968", 0, 1, 0);
 
+			std::string details, state, small_img, large_img;
+
+			DiscordRichPresence drp;
+
 			time_t start_timestamp = time(0);
 
 			while (1)
 			{
-				int CPed = *(int*)0xB6F5F0; // Player pointer.
-
-				if (CPed)
+				if (*(int*)0xB6F5F0) // Player pointer.
 				{
-					std::string details, state, small_img, large_img;
-
-					DiscordRichPresence drp;
-
 					memset(&drp, 0, sizeof(drp));
 
 					drp.largeImageKey = "game_icon";
 					drp.startTimestamp = start_timestamp;
 
-					if (*(unsigned char*)(CPed + 0x46C) == 1) // Player is on vehicle, let's consider other states as "on-foot".
+					if (*(unsigned char*)(*(int*)0xB6F5F0 + 0x46C) == 1) // Player is on vehicle, let's consider other states as "on-foot".
 					{
 						drp.smallImageKey = "player_on_vehicle";
 						small_img = "On vehicle - Wanted level: " + std::to_string(*(int*)0xBAA420);
@@ -279,7 +274,7 @@ namespace Game
 					}
 
 					details = "Money: $" + std::to_string(*(int*)0xB7CE50);
-					state = "Weapon: " + GetWeaponName(*(int*)(CPed + 0x740));
+					state = "Weapon: " + GetWeaponName(*(int*)(*(int*)0xB6F5F0 + 0x740));
 					large_img = std::to_string(*(int*)0xB79038) + " day(s) passed.";
 
 					drp.smallImageText = small_img.c_str();

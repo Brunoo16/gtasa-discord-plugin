@@ -5,11 +5,9 @@
 
 namespace Game
 {
-	extern HMODULE handler;
-
 	namespace Functions
 	{
-		void Initialize(HMODULE handle);
+		void Initialize();
 		void Shutdown();
 
 		std::string GetWeaponName(int id);
