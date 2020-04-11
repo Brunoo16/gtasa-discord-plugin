@@ -2,7 +2,7 @@
 #define DP_DLLMAIN_H_
 
 #include <windows.h>
-#include <time.h>
+#include <ctime>
 #include <string>
 
 #include "discord-rpc.h"

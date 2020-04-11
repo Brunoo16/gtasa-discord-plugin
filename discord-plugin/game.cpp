@@ -53,14 +53,6 @@ namespace Game
 				{
 					if (*reinterpret_cast<int*>(0xB6F5F0))
 					{
-						if (*reinterpret_cast<unsigned char*>(*reinterpret_cast<int*>(0xB6F5F0) + 0x46C) == 1) // Player is on vehicle, let's consider other states as "on-foot".
-						{
-							drp.smallImageKey = "player_on_vehicle";
-						}
-						else
-						{
-							drp.smallImageKey = "player_on_foot";
-						}
 
 						details = "Money: $" + std::to_string(*reinterpret_cast<int*>(0xB7CE50));
 						state = "Weapon: " + WeaponNames[*reinterpret_cast<int*>(0xBAA410)];

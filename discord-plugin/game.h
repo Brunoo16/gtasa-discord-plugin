@@ -3,7 +3,7 @@
 
 #include "dllmain.h"
 
-#define APPLICATION_ID "424599965164371968"
+#define APPLICATION_ID "698510493282992139"
 
 namespace Game
 {
@@ -57,6 +57,57 @@ namespace Game
 		{ "Thermal Goggles" },
 		{ "Parachute" },
 		{ "Fake Pistol" }
+	};
+
+	const std::string WeaponIcons[] =
+	{
+		{ "fist" },
+		{ "brassknuckleicon" },
+		{ "golfclubicon" },
+		{ "nitestickicon" },
+		{ "knifecuricon" },
+		{ "baticon" },
+		{ "shovelicon" },
+		{ "poolcueicon" },
+		{ "katanaicon" },
+		{ "chnsawicon" },
+		{ "dildo1icon" },
+		{ "dildo2icon" },
+		{ "vibe1icon" },
+		{ "vibe2icon" },
+		{ "flowericon" },
+		{ "caneicon" },
+		{ "grenadeicon" },
+		{ "teargasicon" },
+		{ "molotovicon" },
+		{ " " }, // Unused
+		{ " " }, // Unused
+		{ " " }, // Unused
+		{ "colt45icon" },
+		{ "silencedicon" },
+		{ "desert_eagleicon" },
+		{ "chromegunicon" },
+		{ "sawnofficon" },
+		{ "shotgspaicon" },
+		{ "micro_uziicon" },
+		{ "mp5lngicon" },
+		{ "ak47icon" },
+		{ "m4icon" },
+		{ "tec9icon" },
+		{ "cuntgunicon" },
+		{ "snipericon" },
+		{ "rocketlaicon" },
+		{ "heatseekicon" },
+		{ "flameicon" },
+		{ "minigunicon" },
+		{ "satchelicon" },
+		{ "bombicon" },
+		{ "spraycanicon" },
+		{ "fire_exicon" },
+		{ "cameraicon" },
+		{ "gogglesicon" },
+		{ "gogglesicon" },
+		{ "paraicon" },
 	};
 
 	struct ZoneStruct
