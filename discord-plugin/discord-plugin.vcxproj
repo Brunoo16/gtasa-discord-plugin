@@ -76,7 +76,7 @@
     <IncludePath>$(SolutionDir)\discord-plugin\lib;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)\discord-plugin\lib;$(LibraryPath)</LibraryPath>
     <TargetExt>.asi</TargetExt>
-    <OutDir>..\..\..\..\..\..\..\Games\GTA San Andreas\</OutDir>
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -126,11 +126,13 @@
   <ItemGroup>
     <ClCompile Include="game.cpp" />
     <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="samp.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="game.h" />
     <ClInclude Include="dllmain.h" />
     <ClInclude Include="lib\discord-rpc.h" />
+    <ClInclude Include="samp.h" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="lib\discord-rpc.lib" />

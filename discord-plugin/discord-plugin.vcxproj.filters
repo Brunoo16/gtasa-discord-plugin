@@ -24,6 +24,9 @@
     <ClCompile Include="game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="samp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="dllmain.h">
@@ -34,6 +37,9 @@
     </ClInclude>
     <ClInclude Include="lib\discord-rpc.h">
       <Filter>lib</Filter>
+    </ClInclude>
+    <ClInclude Include="samp.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -1,5 +1,4 @@
-#ifndef DP_DLLMAIN_H_
-#define DP_DLLMAIN_H_
+#pragma once
 
 #include <windows.h>
 #include <ctime>
@@ -7,5 +6,6 @@
 
 #include "discord-rpc.h"
 #include "game.h"
+#include "samp.h"
 
-#endif
+std::string cp1251_to_utf8(const char* str);
