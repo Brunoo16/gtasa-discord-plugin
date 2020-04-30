@@ -33,12 +33,6 @@ struct stSAMP
 	struct stSAMPPools*			pPools;
 };
 
-struct stServerInfo
-{
-	uint32_t					uiIP;
-	uint16_t					usPort;
-};
-
 struct stPlayerPool
 {
 	uint32_t					ulMaxPlayerID;
@@ -52,49 +46,6 @@ struct stPlayerPool
 	int							iIsListed[1004];
 	DWORD						dwPlayerIP[1004]; // always 0
 };
-
-struct stRemotePlayerData
-{
-	struct stSAMPPed*			pSAMP_Actor;
-	struct stSAMPVehicle*		pSAMP_Vehicle;
-	uint8_t						byteTeamID;
-	uint8_t						bytePlayerState;
-	uint8_t						byteSeatID;
-	uint32_t					ulUnk3;
-	int							iPassengerDriveBy;
-	void*						pUnk0;
-	uint8_t						byteUnk1[60];
-	float						fSomething[3];
-	float						fVehicleRoll[4];
-	uint32_t					ulUnk2[3];
-	float						fOnFootPos[3];
-	float						fOnFootMoveSpeed[3];
-	float						fVehiclePosition[3];
-	float						fVehicleMoveSpeed[3];
-	uint16_t					sPlayerID;
-	uint16_t					sVehicleID;
-	uint32_t					ulUnk5;
-	int							iShowNameTag;
-	int							iHasJetPack;
-	uint8_t						byteSpecialAction;
-	uint32_t					ulUnk4[3];
-};
-
-struct stRemotePlayer
-{
-	stRemotePlayerData*			pPlayerData;
-	int							iIsNPC;
-	void*						pVTBL_txtHandler;
-	std::string					strPlayerName;
-	int							iScore;
-	int							iPing;
-};
-
-struct stScoreboardInfo
-{
-	int					iIsEnabled;
-	int					iPlayersCount;
-};
 #pragma pack(pop)
 
 // Functions
@@ -102,4 +53,3 @@ bool SampInit();
 
 // global pointer externals
 extern struct stSAMP* SAMP;
-extern struct stScoreboardInfo* Scoreboard;

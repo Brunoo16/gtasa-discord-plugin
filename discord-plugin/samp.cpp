@@ -14,12 +14,8 @@ bool SampInit()
 	if (SAMP == nullptr)
 		return false;
 
-	if (Scoreboard == nullptr)
-		Scoreboard = *(stScoreboardInfo**)(dwSAMP_Addr + 0x21A0B4);
-
 	return true;
 }
 
 // global samp pointers
 stSAMP* SAMP = nullptr;
-stScoreboardInfo* Scoreboard = nullptr;

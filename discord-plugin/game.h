@@ -4,6 +4,7 @@
 #define APPLICATION_ID "698510493282992139"
 
 extern HMODULE module;
+extern std::map <std::string, std::string> MissionNames;
 
 const std::string WeaponNames[] =
 {
@@ -503,5 +504,4 @@ const ZoneStruct zone[] =
 
 void Initialize();
 void Shutdown();
-std::string GetCurrentZone();
 void PluginThread();

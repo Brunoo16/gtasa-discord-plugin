@@ -3,6 +3,7 @@
 #include <windows.h>
 #include <ctime>
 #include <string>
+#include <map>
 
 #include "discord-rpc.h"
 #include "game.h"
